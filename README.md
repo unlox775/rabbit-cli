@@ -5,7 +5,7 @@ Simple CLI for Rabbit MQ
 
 You can push a new message (by routing key):
 ```
-./bin/publish_message "amqp://garden:garden@localhost:5672" mytest.routing_key_thingy test_message
+./bin/publish_message -r amqp://garden:garden@localhost:5672 mytest.routing_key_thingy test_message
 ```
 
 returns:
