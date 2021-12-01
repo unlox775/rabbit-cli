@@ -11,6 +11,10 @@ const commandLineArgs = require('command-line-args')
 const options = commandLineArgs(optionDefinitions)
 
 amqp.connect(options.repo, function (error0, connection) {
+  if ( ! connection) {
+    console.log(['Error Connecting: ',error0])
+    process.exit();
+  }
   connection.createChannel(function (error1, channel) {
     var x = channel.publish("events", options.args[0], Buffer.from(options.args[1]));
     console.log(`Publish Success: ${x}`);
